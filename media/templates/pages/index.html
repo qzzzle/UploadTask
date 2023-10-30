@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question Gallery Input Form</title>
+</head>
+<body>
+
+<form action="{% url 'question' %}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <!-- First input - text field -->
+    <label for="{{ form.question_text.id_for_label }}">Question Text:</label>
+    {{ form.question_text }}
+    <br><br>
+
+    <!-- Second input - file -->
+    <label for "{{ form.question_file.id_for_label }}">Question File:</label>
+    {{ form.question_file }}
+    <br><br>
+
+    <!-- Third input - file -->
+    <label for="{{ form.answer_file.id_for_label }}">Answer File:</label>
+    {{ form.answer_file }}
+    <br><br>
+
+    <!-- Last input - integer -->
+    <label for="{{ form.answer_integer.id_for_label }}">Answer Integer (min 1, max 4):</label>
+    {{ form.answer_integer }}
+    <br><br>
+
+    <!-- Save button -->
+    <input type="submit" value="Save">
+</form>
+
+</body>
+</html>
